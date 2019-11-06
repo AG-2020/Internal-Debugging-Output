@@ -19,10 +19,10 @@ void debugConsole::enable(const std::string& title) {
 		freopen_s(reinterpret_cast<FILE**>(stderr), "CONOUT$", "w", stderr); //will add error check for this when I get the chance
 		EnableMenuItem(GetSystemMenu(GetConsoleWindow(), FALSE), SC_CLOSE, MF_DISABLED);
 		if (!SetConsoleTitle(title.c_str()))
-			throw std::exception("SetConsoleTitle Failed.");
+			throw std::exception("SetConsoleTitle failed.");
 		if (!SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_INTENSITY))
 			throw std::exception("SetConsoleTextAttribute failed.");
-		debugConsole::file.open("FeroxCSGO.txt", std::ofstream::out | std::ofstream::app | std::ofstream::trunc);
+		debugConsole::file.open("YOURFILE.txt", std::ofstream::out | std::ofstream::app | std::ofstream::trunc);
 		info("Console initialized.");
 	}
 	catch (std::exception& e) {
